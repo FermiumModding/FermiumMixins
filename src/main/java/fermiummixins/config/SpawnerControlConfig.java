@@ -18,6 +18,22 @@ public class SpawnerControlConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean curingTicksSpawners = false;
+
+	@Config.Comment("Makes Lycanites entities that transform into new entities (fusion and others) count as a kill for spawners")
+	@Config.Name("Lycanites Transforming Ticks Spawners (MobSpawnerControl/LycanitesMobs)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.spawnercontrol.lycanitesmobs.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.SpawnerControl_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.LycanitesMobs_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean lycanitesTicksSpawners = false;
 	
 	@Config.Comment("After a spawner is broken, prevents mob drops after a certain threshold of kills is reached to prevent farming exploits")
 	@Config.Name("Spawner Farming Fix (MobSpawnerControl)")
