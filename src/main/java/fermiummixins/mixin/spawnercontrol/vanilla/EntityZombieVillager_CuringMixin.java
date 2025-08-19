@@ -1,6 +1,5 @@
 package fermiummixins.mixin.spawnercontrol.vanilla;
 
-import fermiummixins.util.ModLoadedUtil;
 import fermiummixins.wrapper.SpawnerControlWrapper;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
@@ -23,7 +22,7 @@ public abstract class EntityZombieVillager_CuringMixin extends EntityZombie {
             cancellable = true
     )
     private void fermiummixins_vanillaEntityZombieVillager_finishConversion(CallbackInfo ci) {
-        if(!this.world.isRemote && ModLoadedUtil.isSpawnerControlLoaded()) {
+        if(!this.world.isRemote) {
             SpawnerControlWrapper.increaseSpawnerCount(this);
             if(SpawnerControlWrapper.shouldCancelDrops(this)) {
                 this.setDead();

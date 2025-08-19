@@ -3,7 +3,6 @@ package fermiummixins.mixin.spawnercontrol.lycanitesmobs;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import fermiummixins.util.ModLoadedUtil;
 import fermiummixins.wrapper.SpawnerControlWrapper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -24,7 +23,7 @@ public abstract class BaseCreatureEntity_TransformMixin extends EntityLiving {
             remap = false
     )
     private boolean fermiummixins_lycanitesMobsBaseCreatureEntity_transform(World instance, Entity resultingEntity, @Local(argsOnly = true) Entity partner, @Local(argsOnly = true) boolean destroyPartner) {
-        if(!this.world.isRemote && ModLoadedUtil.isSpawnerControlLoaded()) {
+        if(!this.world.isRemote) {
             SpawnerControlWrapper.increaseSpawnerCount(this); // Increase for initiating fusion entity
             if(destroyPartner) {
                 SpawnerControlWrapper.increaseSpawnerCount(partner); // Increase for target fusion partner
