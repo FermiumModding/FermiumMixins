@@ -6,6 +6,6 @@
   "target": "@env(DEFAULT)",
   "minVersion": "0.8",
   "mixins": [
-    "vanilla.SPacketEntityVelocityMixin"
+    "vanilla.SPacketEntityVelocity_LimitMixin"
   ]
 }

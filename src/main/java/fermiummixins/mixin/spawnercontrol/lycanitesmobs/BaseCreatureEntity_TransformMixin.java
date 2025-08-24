@@ -19,7 +19,7 @@ public abstract class BaseCreatureEntity_TransformMixin extends EntityLiving {
 
     @WrapWithCondition(
             method = "transform",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z", remap = true),
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"),
             remap = false
     )
     private boolean fermiummixins_lycanitesMobsBaseCreatureEntity_transform(World instance, Entity resultingEntity, @Local(argsOnly = true) Entity partner, @Local(argsOnly = true) boolean destroyPartner) {

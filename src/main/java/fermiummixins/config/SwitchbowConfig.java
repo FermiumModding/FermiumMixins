@@ -41,8 +41,8 @@ public class SwitchbowConfig {
 	)
 	public boolean luckArrowLootingFix = false;
 
-	@Config.Comment("Fixes Arrow Dispenser Blocks shooting using a fake entity that returns null ItemStacks when queried for held items (e.g. bow).")
-	@Config.Name("Null Stack Fix (Switchbow)")
+	@Config.Comment("Fixes Arrow Launcher's fake entity returning null ItemStacks when queried for held items")
+	@Config.Name("Arrow Launcher Null Stack Fix (Switchbow)")
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.switchbow.arrowlaunchernullstacks.json", defaultValue = false)
 	@MixinConfig.CompatHandling(

@@ -6,6 +6,6 @@
   "target": "@env(DEFAULT)",
   "minVersion": "0.8",
   "mixins": [
-    "switchbow.EntityArrowLauncherMixin"
+    "switchbow.EntityArrowLauncher_NullStackMixin"
   ]
 }

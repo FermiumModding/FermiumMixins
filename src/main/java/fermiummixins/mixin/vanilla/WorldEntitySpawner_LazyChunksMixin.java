@@ -26,8 +26,9 @@ public abstract class WorldEntitySpawner_LazyChunksMixin {
         int x1 = cpos.x << 4 + 8;
         int z1 = cpos.z << 4 + 8;
         
-        if(!((IWorldInvoker)world).invokeIsAreaLoaded(x1 - 32, 0, z1 - 32, x1 + 32, 0, z1 + 32, true))
+        if(!((IWorldInvoker)world).invokeIsAreaLoaded(x1 - 32, 0, z1 - 32, x1 + 32, 0, z1 + 32, true)) {
             return false;
+        }
         return original.call(instance, obj);
     }
 }

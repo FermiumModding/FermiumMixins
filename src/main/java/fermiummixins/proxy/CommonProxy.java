@@ -14,7 +14,7 @@ import fermiummixins.handlers.quark.ChestBoatDupeHandler;
 import fermiummixins.handlers.quark.RightClickSignEditHandler;
 import fermiummixins.handlers.reskillable.UndershirtHandler;
 import fermiummixins.handlers.spawnercontrol.SpawnerFarmingHandler;
-import fermiummixins.handlers.vanilla.InControlOptiFineHandler;
+import fermiummixins.handlers.incontrol.InControlOptiFineHandler;
 import fermiummixins.handlers.vanilla.LightningItemDamageHandler;
 import fermiummixins.handlers.vanilla.TimeCacheHandler;
 import fermiummixins.util.ModLoadedUtil;
@@ -44,7 +44,7 @@ public class CommonProxy {
         if(ConfigHandler.FORGOTTENITEMS_CONFIG.veinPickaxeAbusePatch && ModLoadedUtil.isForgottenItemsLoaded()) {
             MinecraftForge.EVENT_BUS.register(VeinPickaxeHandler.class);
         }
-        if(ConfigHandler.INCONTROL_CONFIG.fixSpawnActionRepetitionWithOptiFine && ModLoadedUtil.isInControlLoaded() && ModLoadedUtil.isOptifineLoaded()) {
+        if(ConfigHandler.INCONTROL_CONFIG.fixSpawnRuleRepetition && ModLoadedUtil.isInControlLoaded() && ModLoadedUtil.isOptifineLoaded()) {
             MinecraftForge.EVENT_BUS.register(InControlOptiFineHandler.class);
         }
         if(ConfigHandler.INSPIRATIONS_CONFIG.milkingCooldownFix && ModLoadedUtil.isInspirationsLoaded()) {
