@@ -75,7 +75,7 @@ public class QuarkConfig {
 	public boolean enderWatcherPerformance = false;
 	
 	@Config.Comment("Allows for setting how many ticks the ender watcher should take before updating" + "\n" +
-			"Requires \"Enchanted Book Tooltip Rendering Patch (Quark)\" enabled")
+			"Requires \"Ender Watcher Performance Patch (Quark)\" enabled")
 	@Config.Name("Ender Watcher Tick Rate (Quark)")
 	@Config.RequiresMcRestart
 	@Config.RangeInt(min = 1)
