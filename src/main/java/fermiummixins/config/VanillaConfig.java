@@ -535,6 +535,25 @@ public class VanillaConfig {
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.entityvelocitysync.json", defaultValue = false)
 	public boolean entityVelocitySync = false;
 	
+	@Config.Comment("Prints when automatic world saving starts and ends to the log, along with time taken, for better clarity during lag spikes")
+	@Config.Name("Automatic Save Logging (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.autosavelog.json", defaultValue = false)
+	public boolean automaticSaveLogging = false;
+	
+	@Config.Comment("Adjusts the server thread priority to max (10) to potentially improve performance when other less important threads are taking up resources")
+	@Config.Name("Server Thread Priority Tweak (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.serverpriority.json", defaultValue = false)
+	public boolean serverThreadPriorityTweak = false;
+	
+	@Config.Comment("Adjusts the client thread priority to high (8) to potentially improve performance when other less important threads are taking up resources" + "\n" +
+			"Warning: It is highly recommended you only enable this if \"Server Thread Priority Tweak (Vanilla)\" is also enabled to avoid degrading server thread performance")
+	@Config.Name("Client Thread Priority Tweak (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.clientpriority.json", defaultValue = false)
+	public boolean clientThreadPriorityTweak = false;
+	
 	private Set<Potion> tippedArrowBlacklistedPotions = null;
 	private List<String> particleRetainCollisionClasses = null;
 	private Map<Integer, IBlockState> dimensionFillerBlockMap = null;
