@@ -23,8 +23,8 @@ public abstract class WorldEntitySpawner_LazyChunksMixin {
     )
     private boolean fermiummixins_vanillaWorldEntitySpawner_findChunksForSpawning(Set<ChunkPos> instance, Object obj, Operation<Boolean> original, @Local(argsOnly = true) WorldServer world) {
         ChunkPos cpos = (ChunkPos) obj;
-        int x1 = cpos.x << 4 + 8;
-        int z1 = cpos.z << 4 + 8;
+        int x1 = (cpos.x << 4) + 8;
+        int z1 = (cpos.z << 4) + 8;
         
         if(!((IWorldInvoker)world).invokeIsAreaLoaded(x1 - 32, 0, z1 - 32, x1 + 32, 0, z1 + 32, true)) {
             return false;
