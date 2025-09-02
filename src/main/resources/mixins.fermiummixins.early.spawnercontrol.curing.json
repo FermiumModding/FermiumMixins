@@ -7,6 +7,7 @@
   "minVersion": "0.8",
   "mixins": [
     "spawnercontrol.vanilla.EntityZombieVillager_CuringMixin",
+    "spawnercontrol.vanilla.EntitySilverFish_BlockInfestMixin",
     "spawnercontrol.vanilla.EntityPig_CuringMixin"
   ]
 }
