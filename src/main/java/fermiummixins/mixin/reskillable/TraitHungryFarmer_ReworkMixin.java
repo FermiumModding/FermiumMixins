@@ -34,13 +34,10 @@ public abstract class TraitHungryFarmer_ReworkMixin extends Trait {
         EntityPlayer player = event.player;
         if(player == null || player.isCreative() || player.isSpectator()) return;
         
-        if(player.ticksExisted%40 != 0) return;
-        
         PlayerData data = PlayerDataHandler.get(player);
         if(data == null || !data.getSkillInfo(this.getParentSkill()).isUnlocked(this)) return;
 
-        //Eat only if there's more than half a hunger haunch missing
-        if(player.getFoodStats().getFoodLevel() >= 18) return;
+        if(player.getFoodStats().getFoodLevel() >= 19.5) return;
 
         //Choose the first item in player inventory (not ContainerPlayer!) that is edible
         ItemStack chosenStack = ItemStack.EMPTY;
