@@ -458,7 +458,7 @@ public class VanillaConfig {
 	@Config.Name("Allow Entity View Distance Override (Vanilla)")
 	public boolean allowEntityViewDistanceOverride = false;
 	
-	@Config.Comment("List of entities and the value of their view distance to override with" + "\n" +
+	@Config.Comment("List of modded entities and the value of their view distance to override with" + "\n" +
 			"Format: entityid=distance" + "\n" +
 			"Requires \"Allow Entity View Distance Override (Vanilla)\" enabled")
 	@Config.Name("Entity View Distance Override List")
