@@ -1,5 +1,6 @@
 package fermiummixins;
 
+import fermiummixins.handlers.ConfigHandler;
 import fermiummixins.handlers.PacketHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -27,5 +28,6 @@ public class FermiumMixins {
     public void preInit(FMLPreInitializationEvent event) {
         PacketHandler.init();
         FermiumMixins.PROXY.registerSubscribers();
+        ConfigHandler.refreshConfigs();
     }
 }

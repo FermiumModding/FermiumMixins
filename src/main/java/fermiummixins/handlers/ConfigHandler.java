@@ -180,12 +180,16 @@ public class ConfigHandler {
 		public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 			if(event.getModID().equals(FermiumMixins.MODID)) {
 				ConfigManager.sync(FermiumMixins.MODID, Config.Type.INSTANCE);
-				ConfigHandler.ADVANCEDROCKETRY_CONFIG.refreshConfig();
-				ConfigHandler.BETTERMINESHAFTS_CONFIG.refreshConfig();
-				ConfigHandler.DRAMATICTREES_CONFIG.refreshConfig();
-				ConfigHandler.RESKILLABLE_CONFIG.refreshConfig();
-				ConfigHandler.VANILLA_CONFIG.refreshConfig();
+				refreshConfigs();
 			}
 		}
+	}
+
+	public static void refreshConfigs(){
+		ConfigHandler.ADVANCEDROCKETRY_CONFIG.refreshConfig();
+		ConfigHandler.BETTERMINESHAFTS_CONFIG.refreshConfig();
+		ConfigHandler.DRAMATICTREES_CONFIG.refreshConfig();
+		ConfigHandler.RESKILLABLE_CONFIG.refreshConfig();
+		ConfigHandler.VANILLA_CONFIG.refreshConfig();
 	}
 }
