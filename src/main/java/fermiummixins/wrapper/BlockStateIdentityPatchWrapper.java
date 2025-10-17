@@ -22,10 +22,7 @@ public abstract class BlockStateIdentityPatchWrapper {
 		private int size = 0;
 		
 		public ClearableObjectIntIdentityMapPatched() {
-			//TODO May be worth it to set expected size through config based on post-load totals?
-			//Default vanilla size is 512 but RLCraft test was ~40k-50k
-			//TODO test how expected size practically affects performance/alloc, just guessed for now
-			this(65536);
+			this(512);
 		}
 		
 		public ClearableObjectIntIdentityMapPatched(int expectedSize) {
