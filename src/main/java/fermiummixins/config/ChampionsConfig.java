@@ -89,4 +89,15 @@ public class ChampionsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean preventInfernalChampions = false;
+
+	@Config.Comment("Fix overwriting dropped xp with champmulti * original and instead multiply champmulti * current. Makes the Champion xp multiplier apply on top of for example ScalingHealth Blight xp multiplier instead of replacing it.")
+	@Config.Name("XP Drop Fix (Champions)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.champions.droppedxp.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Champions_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fixDroppedXP = false;
 }
