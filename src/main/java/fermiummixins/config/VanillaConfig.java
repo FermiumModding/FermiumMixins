@@ -456,10 +456,14 @@ public class VanillaConfig {
 	
 	@Config.Comment("Allows for overriding entity view distances with alternate values")
 	@Config.Name("Allow Entity View Distance Override (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.viewdistanceoverride.json", defaultValue = false)
 	public boolean allowEntityViewDistanceOverride = false;
 	
-	@Config.Comment("List of modded entities and the value of their view distance to override with" + "\n" +
+	@Config.Comment("List of entities and the value of their view distance to override with" + "\n" +
 			"Format: entityid=distance" + "\n" +
+			"For vanilla entities, there are some special cases of not-registered entities or whole entity classes: \n" +
+			"Use PLAYER for other players, LIVING for all vanilla living entities, HANGING for all hanging entities like item frames, FISH_HOOK for the fishing hook, FIREBALL for all fireballs, MINECART for all minecarts, ARROW for all arrows.\n" +
 			"Requires \"Allow Entity View Distance Override (Vanilla)\" enabled")
 	@Config.Name("Entity View Distance Override List")
 	public Map<String, Integer> entityViewDistanceOverrideList = new HashMap<String, Integer>() {{
@@ -562,6 +566,7 @@ public class VanillaConfig {
 	private Set<BiomeDictionary.Type> mineshaftBiomeTypeBlacklistSet = null;
 	private Map<Biome, Boolean> respawnBiomeBlacklistMap = null;
 	private Set<BiomeDictionary.Type> respawnBiomeTypeBlacklistSet = null;
+	private final Map<Class<? extends Entity>, Integer> vanillaEntityViewDistanceOverrideCache = new HashMap<>();
 	
 	private Field fieldEntityClassRegistrations = null;
 	private Field fieldTrackingRange = null;
@@ -718,9 +723,24 @@ public class VanillaConfig {
 	}
 	
 	@Nullable
-	private Integer getEntityViewDistanceOverride(ResourceLocation id) {
+	public Integer getEntityViewDistanceOverride(ResourceLocation id) {
 		if(id == null) return null;
 		return this.entityViewDistanceOverrideList.get(id.toString());
+	}
+
+	@Nullable
+	public Integer getEntityViewDistanceOverride(String id) {
+		if(id == null) return null;
+		return this.entityViewDistanceOverrideList.get(id);
+	}
+
+	@Nullable
+	public Integer getCachedVanillaEntityViewDistanceOverride(Entity entity) {
+		return this.vanillaEntityViewDistanceOverrideCache.get(entity.getClass());
+	}
+
+	public void putCachedVanillaEntityViewDistanceOverride(Entity entity, int range) {
+		this.vanillaEntityViewDistanceOverrideCache.put(entity.getClass(), range);
 	}
 	
 	public void refreshConfig() {
@@ -732,6 +752,7 @@ public class VanillaConfig {
 		this.mineshaftBiomeTypeBlacklistSet = null;
 		this.respawnBiomeBlacklistMap = null;
 		this.respawnBiomeTypeBlacklistSet = null;
+		this.vanillaEntityViewDistanceOverrideCache.clear();
 		
 		if(this.allowClampingGamma) this.handleGammaOverrides();
 		if(this.allowEntityViewDistanceOverride) this.handleEntityViewDistanceOverrides();
