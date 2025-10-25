@@ -29,4 +29,15 @@ public class InfernalMobsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean configLoadSpamFix = false;
+
+	@Config.Comment("Fixes how InfernalMobs changes max health of infernal mobs, making the \"entitybasehealth\" config of InfernalMobs obsolete.")
+	@Config.Name("SetHealth Fix (InfernalMobs)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.infernalmobs.sethealthoverwrite.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.InfernalMobs_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fixSetHealth = false;
 }

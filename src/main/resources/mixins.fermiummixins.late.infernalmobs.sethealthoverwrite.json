@@ -1,0 +1,15 @@
+
+{
+  "required": true,
+  "package": "fermiummixins.mixin",
+  "refmap": "mixins.fermiummixins.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "mixins": [
+    "infernalmobs.MobModifier_SetHealthMixin",
+    "infernalmobs.InfernalMobsCore_SetHealthMixin",
+    "infernalmobs.MobModsPacket_SetHealthMixin",
+    "infernalmobs.MM_1UP_SetHealthMixin"
+  ]
+}
