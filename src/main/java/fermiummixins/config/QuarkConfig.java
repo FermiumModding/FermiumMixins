@@ -5,6 +5,9 @@ import fermiummixins.FermiumMixins;
 import fermiummixins.util.ModLoadedUtil;
 import net.minecraftforge.common.config.Config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @MixinConfig(name = FermiumMixins.MODID)
 public class QuarkConfig {
 	
@@ -199,4 +202,41 @@ public class QuarkConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean undergroundGenPerformanceFix = false;
+
+	@Config.Comment("Note down whitelisted GUI classes in Quarks Chest Search Bar configs and how many pixels the searchbar should be moved downwards in it.\n" +
+			"Pattern: I:some.kinda.mod.SomeGui=69")
+	@Config.Name("Chest Search Bar Y Offset Overrides (Quark)")
+	public final Map<String, Integer> chestSearchbarYOffSets = new HashMap<String, Integer>() {{
+		put("com.github.alexthe666.iceandfire.client.gui.GuiHippocampus", 2);
+		put("com.github.alexthe666.iceandfire.client.gui.GuiHippogryph", 2);
+		put("com.lycanitesmobs.client.gui.CreatureInventoryScreen", 2);
+		put("dev.satyrn.wolfarmor.client.gui.GuiWolfInventory", -6);
+		put("gigaherz.toolbelt.common.GuiBelt", 1);
+		put("net.mcft.copy.backpacks.client.GuiBackpack", 1);
+		put("net.minecraft.client.gui.GuiHopper", 1);
+		put("net.minecraft.client.gui.inventory.GuiScreenHorseInventory", 2);
+		put("svenhjol.charm.crafting.gui.GuiContainerBarrel", 2);
+	}};
+
+	@Config.Comment("Allow modifying the Chest Search Bar Y Offsets by GUI class name")
+	@Config.Name("Chest Search Bar Y Offset (Quark)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.quark.chestsearchbaryoffset.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Quark_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean enableChestSearchBarYOffset = false;
+
+	@Config.Comment("Clear the Quark chest search bar whenever the current GUI is closed.")
+	@Config.Name("Chest Search Bar Autoclear (Quark)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.quark.chestsearchbarclear.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Quark_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean enableChestSearchBarClear = false;
 }
