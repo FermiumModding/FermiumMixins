@@ -40,4 +40,8 @@ public class InfernalMobsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean fixSetHealth = false;
+
+	@Config.Comment("InfernalMobs should in theory have more health the more abilities they have (+100% per ability). However this never worked, but it can be fixed by toggling this config.")
+	@Config.Name("Fix Additional Health (InfernalMobs)")
+	public boolean fixAdditionalHealth = false;
 }

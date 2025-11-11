@@ -10,6 +10,6 @@
     "infernalmobs.MobModifier_SetHealthMixin",
     "infernalmobs.InfernalMobsCore_SetHealthMixin",
     "infernalmobs.MobModsPacket_SetHealthMixin",
-    "infernalmobs.MM_1UP_SetHealthMixin"
+    "infernalmobs.MM_RegenMixin"
   ]
 }
