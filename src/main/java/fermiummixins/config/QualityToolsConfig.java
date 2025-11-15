@@ -29,4 +29,15 @@ public class QualityToolsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean reforgeStationShowsQuality = false;
+
+	@Config.Comment("Fixes a somewhat rare server crash during reforging")
+	@Config.Name("Fix Reforging Crash (QualityTools)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.qualitytools.reforgingcrashfix.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.QualityTools_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fixReforgingCrash = false;
 }
