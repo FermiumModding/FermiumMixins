@@ -23,4 +23,16 @@ public class NetherAPIConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean fixDisabledBiomeCrash = false;
+	
+	@Config.Comment("Enables retrying random spawn placement to get a better location (Avoids spawning in blocks or liquid)" + "\n" +
+			"See Random Respawn Placement Protection (Vanilla) for additional related options")
+	@Config.Name("Random Respawn Placement Protection (NetherAPI)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.netherapi.respawnprotection.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.NetherAPI_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean randomRespawnPlacementProtectionNetherAPI = false;
 }
