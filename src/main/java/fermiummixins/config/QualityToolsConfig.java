@@ -30,6 +30,11 @@ public class QualityToolsConfig {
 	)
 	public boolean reforgeStationShowsQuality = false;
 
+	@Config.Comment("If \"Reforge Station Shows Quality\" is enabled, show either the whole items tooltip (FULL_ITEM), only the relevant quality parts (ONLY_QUALITY) or only the qualities name (ONLY_QUALITY_NAME).")
+	@Config.Name("Reforge Station Tooltip Type (QualityTools)")
+	public QualityToolTipType reforgeStationQualityShowType = QualityToolTipType.ONLY_QUALITY;
+	public enum QualityToolTipType { FULL_ITEM, ONLY_QUALITY, ONLY_QUALITY_NAME}
+
 	@Config.Comment("Fixes a somewhat rare server crash during reforging")
 	@Config.Name("Fix Reforging Crash (QualityTools)")
 	@Config.RequiresMcRestart
