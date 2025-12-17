@@ -20,6 +20,9 @@ public class ConfigHandler {
 	@Config.Name("AstikorCarts Config")
 	public static final AstikorCartsConfig ASTIKORCARTS_CONFIG = new AstikorCartsConfig();
 	
+	@Config.Name("AutoRegLib Config")
+	public static final AutoRegLibConfig AUTOREGLIB_CONFIG = new AutoRegLibConfig();
+	
 	@Config.Name("Battletowers Config")
 	public static final BattletowersConfig BATTLETOWERS_CONFIG = new BattletowersConfig();
 	

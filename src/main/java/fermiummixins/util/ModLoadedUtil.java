@@ -7,8 +7,9 @@ public abstract class ModLoadedUtil {
 	
 	public static final String AdvancedRocketry_MODID = "advancedrocketry";
 	public static final String AnvilPatch_MODID = "anvilpatch";
-	public static final String AstikorCarts_MODID = "astikorcarts";
 	public static final String AquaAcrobatics_MODID = "aquaacrobatics";
+	public static final String AstikorCarts_MODID = "astikorcarts";
+	public static final String AutoRegLib_MODID = "autoreglib";
 	public static final String Battletowers_MODID = "battletowers";
 	public static final String BetterFoliage_MODID = "betterfoliage";
 	public static final String BetterMineshafts_MODID = "bettermineshafts";
@@ -33,6 +34,7 @@ public abstract class ModLoadedUtil {
 	public static final String DynamicSurroundings_MODID = "dsurround";
 	public static final String DynamicSurroundingsHuds_MODID = "dshuds";
 	public static final String ElenaiDodge_MODID = "elenaidodge";
+	public static final String FancyBlockParticles_MODID = "fbp";
 	public static final String FancyMenu_MODID = "fancymenu";
 	public static final String FirstAid_MODID = "firstaid";
 	public static final String FoodExpansion_MODID = "foodexpansion";
