@@ -26,4 +26,26 @@ public class WaystonesConfig {
 			"Requires \"Rework Waystone Used Name Check (Waystones)\" enabled")
 	@Config.Name("Village Waystones Remove Biome Name")
 	public boolean villageWaystoneRemoveBiome = false;
+
+	@Config.Comment("Fixes a bug that makes it impossible to reorder waystones correctly if a player has access to more than 127 waystones.")
+	@Config.Name("Fix Waystone Swapping (Waystones)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.waystones.swapping.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Waystones_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fixWaystoneSwapping = false;
+
+	@Config.Comment("Resets fall distance to 0 when players teleport to waystones, making it consistent with other teleportation methods.")
+	@Config.Name("Reset Fall Distance (Waystones)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.waystones.falldistance.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Waystones_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean resetFallDistance = false;
 }
