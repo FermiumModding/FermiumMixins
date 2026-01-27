@@ -16,7 +16,8 @@ public abstract class MessageSortWaystoneMixin {
 
 	@Inject(
 			method = "fromBytes",
-			at = @At(value = "TAIL")
+			at = @At(value = "TAIL"),
+			remap = false
 	)
     private void fermiumMixins_waystonesMessageSortWaystone_fromBytes(ByteBuf buf, CallbackInfo ci) {
 		this.index = buf.readInt();
@@ -25,7 +26,8 @@ public abstract class MessageSortWaystoneMixin {
 
 	@Inject(
 			method = "toBytes",
-			at = @At(value = "TAIL")
+			at = @At(value = "TAIL"),
+			remap = false
 	)
 	private void fermiumMixins_waystonesMessageSortWaystone_toBytes(ByteBuf buf, CallbackInfo ci) {
 		buf.writeInt(this.index);
