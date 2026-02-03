@@ -46,6 +46,17 @@ public class LycanitesMobsConfig {
 	)
 	public boolean asmodeusMinionPatch = false;
 
+	@Config.Comment("Fixes a bug where reloaded soulbound pets don't get properly removed from the world")
+	@Config.Name("Despawn Unloaded Soulbound Patch (LycanitesMobs)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.lycanitesmobs.invalidsoulbound.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.LycanitesMobs_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean invalidSoulboundPatch = false;
+
 	@Config.Comment("Fixes the missing registry entry that causes lycanites item drops to always be removed when unloaded")
 	@Config.Name("Custom Item Entity Registry Patch (LycanitesMobs)")
 	@Config.RequiresMcRestart
