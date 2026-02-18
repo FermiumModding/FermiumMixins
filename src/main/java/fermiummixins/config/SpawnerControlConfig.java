@@ -8,7 +8,7 @@ import net.minecraftforge.common.config.Config;
 @MixinConfig(name = FermiumMixins.MODID)
 public class SpawnerControlConfig {
 	
-	@Config.Comment("Makes curing Zombie Villagers and Pig lightning conversions count as a kill for spawners")
+	@Config.Comment("Makes curing Zombie Villagers, Silverfish, and Pig lightning conversions count as a kill for spawners")
 	@Config.Name("Curing/Conversion Ticks Spawners (MobSpawnerControl)")
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.spawnercontrol.curing.json", defaultValue = false)
