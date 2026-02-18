@@ -19,7 +19,7 @@ public abstract class ObjectManager_CustomItemMixin {
             at = @At("TAIL"),
             remap = false
     )
-    private static void fermiummixins_lycanitesMobsObjectManager_registerSpecialEntities(RegistryEvent.Register<EntityEntry> event, CallbackInfo ci){
+    private static void fermiummixins_lycanitesMobsObjectManager_registerSpecialEntities(RegistryEvent.Register<EntityEntry> event, CallbackInfo ci) {
         String entityName = "custom_item";
         String registryName = LycanitesMobs.modInfo.modid + ":" + entityName;
         EntityEntry entityEntry = EntityEntryBuilder.create()
