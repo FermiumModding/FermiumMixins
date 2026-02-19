@@ -18,4 +18,11 @@ public class JEIConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean ignoreAnvilEnchantmentRecipes = false;
+	
+	@Config.Comment("Simplifies JEI anvil enchantment recipes instead to save on most of the memory without removing them fully" + "\n" +
+			"Shows the base item as input and cycles applicable enchantments + levels in the same recipe, and leaves output as unenchanted copy" + "\n" +
+			"Requires \"Ignore Anvil Enchantment Recipes (JEI)\" enabled")
+	@Config.Name("Simplified Anvil Enchantment Recipes (JEI)")
+	@Config.RequiresMcRestart
+	public boolean simplifiedAnvilEnchantmentRecipes = false;
 }
