@@ -39,6 +39,7 @@ public abstract class ModLoadedUtil {
 	public static final String FirstAid_MODID = "firstaid";
 	public static final String FoodExpansion_MODID = "foodexpansion";
 	public static final String ForgottenItems_MODID = "forgottenitems";
+	public static final String GalactiCraft_MODID = "galacticraftcore";
 	public static final String InControl_MODID = "incontrol";
 	public static final String InfernalMobs_MODID = "infernalmobs";
 	public static final String Inspirations_MODID = "inspirations";
@@ -78,6 +79,7 @@ public abstract class ModLoadedUtil {
 	private static Boolean charmLoaded = null;
 	private static Boolean firstAidLoaded = null;
 	private static Boolean forgottenItemsLoaded = null;
+	private static Boolean galactiCraftLoaded = null;
 	private static Boolean inControlLoaded = null;
 	private static Boolean infernalMobsLoaded = null;
 	private static Boolean inspirationsLoaded = null;
@@ -122,6 +124,11 @@ public abstract class ModLoadedUtil {
 	public static boolean isForgottenItemsLoaded() {
 		if(forgottenItemsLoaded == null) forgottenItemsLoaded = Loader.isModLoaded(ForgottenItems_MODID);
 		return forgottenItemsLoaded;
+	}
+	
+	public static boolean isGalactiCraftLoaded() {
+		if(galactiCraftLoaded == null) galactiCraftLoaded = Loader.isModLoaded(GalactiCraft_MODID);
+		return galactiCraftLoaded;
 	}
 
 	public static boolean isInControlLoaded() {

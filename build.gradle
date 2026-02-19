@@ -93,6 +93,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:firstaid-${firstaid_version}")
     compileOnly fg.deobf("curse.maven:foodexpansion-${foodexpansion_version}")
     compileOnly fg.deobf("curse.maven:forgottenitems-${forgottenitems_version}")
+    compileOnly fg.deobf("curse.maven:galacticraft-${galacticraft_version}")
     compileOnly fg.deobf("curse.maven:in-control-${incontrol_version}")
     compileOnly fg.deobf("curse.maven:infernalmobs-${infernalmobs_version}")
     compileOnly fg.deobf("curse.maven:inspirations-${inspirations_version}")

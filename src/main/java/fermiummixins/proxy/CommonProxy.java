@@ -9,6 +9,7 @@ import fermiummixins.handlers.betterquesting.ListenMapHandler;
 import fermiummixins.handlers.bountifulbaubles.flare.EntityFlareNonAlbedo;
 import fermiummixins.handlers.charm.MagneticHandler;
 import fermiummixins.handlers.forgottenitems.VeinPickaxeHandler;
+import fermiummixins.handlers.galacticraft.SuffocationHandler;
 import fermiummixins.handlers.inspirations.MilkCooldownHandler;
 import fermiummixins.handlers.quark.ChestBoatDupeHandler;
 import fermiummixins.handlers.quark.RightClickSignEditHandler;
@@ -43,6 +44,9 @@ public class CommonProxy {
         }
         if(ConfigHandler.FORGOTTENITEMS_CONFIG.veinPickaxeAbusePatch && ModLoadedUtil.isForgottenItemsLoaded()) {
             MinecraftForge.EVENT_BUS.register(VeinPickaxeHandler.class);
+        }
+        if(ConfigHandler.GALACTICRAFT_CONFIG.suffocationImmunityHandling && ModLoadedUtil.isGalactiCraftLoaded()) {
+            MinecraftForge.EVENT_BUS.register(SuffocationHandler.class);
         }
         if(ConfigHandler.INCONTROL_CONFIG.fixSpawnRuleRepetition && ModLoadedUtil.isInControlLoaded() && ModLoadedUtil.isOptifineLoaded()) {
             MinecraftForge.EVENT_BUS.register(InControlOptiFineHandler.class);

@@ -100,6 +100,9 @@ public class ConfigHandler {
 	
 	@Config.Name("ForgottenItems Config")
 	public static final ForgottenItemsConfig FORGOTTENITEMS_CONFIG = new ForgottenItemsConfig();
+	
+	@Config.Name("GalactiCraft Config")
+	public static final GalactiCraftConfig GALACTICRAFT_CONFIG = new GalactiCraftConfig();
 
 	@Config.Name("InControl Config")
 	public static final InControlConfig INCONTROL_CONFIG = new InControlConfig();
@@ -192,6 +195,7 @@ public class ConfigHandler {
 		ConfigHandler.ADVANCEDROCKETRY_CONFIG.refreshConfig();
 		ConfigHandler.BETTERMINESHAFTS_CONFIG.refreshConfig();
 		ConfigHandler.DRAMATICTREES_CONFIG.refreshConfig();
+		ConfigHandler.GALACTICRAFT_CONFIG.refreshConfig();
 		ConfigHandler.RESKILLABLE_CONFIG.refreshConfig();
 		ConfigHandler.VANILLA_CONFIG.refreshConfig();
 	}
