@@ -214,6 +214,7 @@ public class QuarkConfig {
 		put("gigaherz.toolbelt.common.GuiBelt", 1);
 		put("net.mcft.copy.backpacks.client.GuiBackpack", 1);
 		put("net.minecraft.client.gui.GuiHopper", 1);
+		put("net.minecraft.client.gui.inventory.GuiShulkerBox", 1);
 		put("net.minecraft.client.gui.inventory.GuiScreenHorseInventory", 2);
 		put("svenhjol.charm.crafting.gui.GuiContainerBarrel", 2);
 	}};
