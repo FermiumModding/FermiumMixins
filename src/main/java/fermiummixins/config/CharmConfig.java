@@ -51,4 +51,31 @@ public class CharmConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean coloredRunePortalPlayerOnly = false;
+
+	@Config.Comment("Fixes using hoppers or other inventory handlers (Quark Right Click Dropoff) on Charm Crates ignoring the items maxStackSize.")
+	@Config.Name("Fix Crate ItemHandler Stack Size (Charm)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.charm.cratestacksizefix.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Charm_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fixCrateStackSize = false;
+
+	@Config.Comment("Handles Charm Crates correctly when enabling them in the Quark \"Right Click add to Shulker Box\" config list.")
+	@Config.Name("Crate Right Click Dropoff (Charm/Quark")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.charm.cratedropoff.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Quark_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.Charm_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean enableCrateDropoff = false;
 }
