@@ -563,6 +563,12 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.disablerecipebook.json", defaultValue = false)
 	public boolean disableRecipeBook = false;
+
+	@Config.Comment("Unlocks all recipes in the vanilla recipe book automatically on first craft. Recommended when \"Nuke Advancements\" is enabled.")
+	@Config.Name("Unlock all Recipes (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.unlockallrecipes.json", defaultValue = false)
+	public boolean unlockAllRecipes = false;
 	
 	private Set<Potion> tippedArrowBlacklistedPotions = null;
 	private List<String> particleRetainCollisionClasses = null;
