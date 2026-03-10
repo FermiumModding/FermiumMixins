@@ -15,7 +15,7 @@ public abstract class GuiCraftingMixin_RecipeBookDisable {
             method = "initGui",
             at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z")
     )
-    private boolean fermiummixins_vanillaGuiInventory_initGui_disableRecipeBook(List<GuiButton> instance, Object e, Operation<Boolean> original){
+    private boolean fermiummixins_vanillaGuiCrafting_initGui_disableRecipeBook(List<GuiButton> instance, Object e, Operation<Boolean> original){
         return false;
     }
 }

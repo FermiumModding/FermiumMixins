@@ -16,7 +16,7 @@ public abstract class RecipeBookMixin_RecipeBookDisable {
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void fermiummixins_vanillaGuiInventory_initGui_disableRecipeBook(boolean _open, CallbackInfo ci){
+    private void fermiummixins_vanillaRecipeBook_setGuiOpen_disableRecipeBook(boolean _open, CallbackInfo ci){
         //Only needed if old player data had the recipe saved as open, could also move to serverside NBT saving
         this.isGuiOpen = false;
         ci.cancel();
