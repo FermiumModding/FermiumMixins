@@ -557,6 +557,12 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.clientpriority.json", defaultValue = false)
 	public boolean clientThreadPriorityTweak = false;
+
+	@Config.Comment("Removes the recipe book button in the player inventory gui for modpacks that want to fully rely on JEI")
+	@Config.Name("Disable Recipe Book (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.disablerecipebook.json", defaultValue = false)
+	public boolean disableRecipeBook = false;
 	
 	private Set<Potion> tippedArrowBlacklistedPotions = null;
 	private List<String> particleRetainCollisionClasses = null;
