@@ -57,7 +57,17 @@ public abstract class GuiReforgingStation_TooltipMixin extends GuiContainer {
 						this.renderToolTip(tool, mouseX, mouseY + 20);
 					else {
 						FontRenderer font = tool.getItem().getFontRenderer(tool);
-						this.drawHoveringText(fermiumMixins$getQualityTooltip(tool), mouseX, mouseY + 20, (font == null ? fontRenderer : font));
+						if(font == null) font = fontRenderer;
+
+						List<String> textLines = fermiumMixins$getQualityTooltip(tool);
+						int yOff = 0;
+						for (int lineNumber = 0; lineNumber < textLines.size(); ++lineNumber) {
+							String line = textLines.get(lineNumber);
+							font.drawString(line, 0, yOff, -1);
+
+							if (lineNumber == 0) yOff += 2;
+							yOff += 10;
+						}
 					}
 				}
 			}
