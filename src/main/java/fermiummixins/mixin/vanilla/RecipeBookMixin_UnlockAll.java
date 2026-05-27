@@ -1,6 +1,7 @@
 package fermiummixins.mixin.vanilla;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.stats.RecipeBook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,7 +13,7 @@ public abstract class RecipeBookMixin_UnlockAll {
             method = "isUnlocked",
             at = @At(value = "RETURN")
     )
-    private boolean fermiummixins_vanillaRecipeBook_isUnlocked(boolean original){
-        return true;
+    private boolean fermiummixins_vanillaRecipeBook_isUnlocked(boolean original, IRecipe recipe){
+        return !recipe.getRecipeOutput().isEmpty();
     }
 }
