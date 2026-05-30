@@ -11,8 +11,7 @@ public abstract class EntityTrackerEntry_SuppressMixin {
 	
 	@Redirect(
 			method = "createSpawnPacket",
-			at = @At(value = "INVOKE", target = "Lorg/apache/logging/log4j/Logger;warn(Ljava/lang/String;)V"),
-			remap = false
+			at = @At(value = "INVOKE", target = "Lorg/apache/logging/log4j/Logger;warn(Ljava/lang/String;)V", remap = false)
 	)
 	private void fermiummixins_vanillaEntityTrackerEntry_createSpawnPacket(Logger instance, String s) {
 		//noop
