@@ -569,6 +569,12 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.unlockallrecipes.json", defaultValue = false)
 	public boolean unlockAllRecipes = false;
+
+	@Config.Comment("Suppress moved wrongly/moved too quickly log warnings for players and their vehicles.")
+	@Config.Name("Suppress Wrong Movement Warnings (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.suppresswrongmovement.json", defaultValue = false)
+	public boolean suppressWrongMovement = false;
 	
 	private Set<Potion> tippedArrowBlacklistedPotions = null;
 	private List<String> particleRetainCollisionClasses = null;
