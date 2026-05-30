@@ -41,7 +41,11 @@ public class InfernalMobsConfig {
 	)
 	public boolean fixSetHealth = false;
 
-	@Config.Comment("InfernalMobs should in theory have more health the more abilities they have (+100% per ability). However this never worked, but it can be fixed by toggling this config.")
+	@Config.Comment({
+			"InfernalMobs should in theory have more health the more abilities they have (+100% per ability).",
+			"However this never worked, but it can be fixed by toggling this config.",
+			"The +100% per ability modifier can also be changed using infernalmobs.cfg:mobHealthFactor, suggested value 0.2=20%"
+	})
 	@Config.Name("Fix Additional Health (InfernalMobs)")
 	public boolean fixAdditionalHealth = false;
 }
