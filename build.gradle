@@ -22,6 +22,7 @@ minecraft {
             jvmArg "-Dfml.coreMods.load=${mixin_loader_class}"
             jvmArg "-Dmixin.hotSwap=true"
             jvmArg "-Dmixin.checks.interfaces=true"
+            jvmArg "-Dmixin.debug.export=true"
 
             workingDirectory project.file('run')
 
@@ -34,6 +35,7 @@ minecraft {
             jvmArg "-Dfml.coreMods.load=${mixin_loader_class}"
             jvmArg "-Dmixin.hotSwap=true"
             jvmArg "-Dmixin.checks.interfaces=true"
+            jvmArg "-Dmixin.debug.export=true"
 
             workingDirectory project.file('run')
 
@@ -44,6 +46,7 @@ minecraft {
 }
 
 repositories {
+    flatDir { dirs 'libs' }
     maven { url = 'https://www.cursemaven.com' }
     maven { url = "https://api.modrinth.com/maven" }
     maven { url = "https://maven.k-4u.nl" }
@@ -60,7 +63,7 @@ dependencies {
     annotationProcessor "io.github.llamalad7:mixinextras-common:${mixin_extras_version}"
 
     //FermiumBooter
-    implementation fg.deobf("curse.maven:fermiumbooter-${fermiumbooter_version}")
+    implementation fg.deobf("libs:FermiumBooter:1.5.0-indev")
 
     //CurseMaven Mods
     compileOnly fg.deobf("curse.maven:advancedrocketry-${advancedrocketry_version}")
@@ -178,25 +181,12 @@ jar {
                 'Implementation-Vendor'   : mod_author,
                 'Implementation-Version'  : mod_version,
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+
                 'FMLCorePlugin': mixin_loader_class,
-                'FMLCorePluginContainsFMLMod': 'true',
-                'ForceLoadAsMod': 'true', //Comment out in dev environment, uncomment for building
-                'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker'
+                'FMLCorePluginContainsFMLMod': true,
+                'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'ForceLoadAsMod': gradle.startParameter.taskNames[0] != 'runClient' && gradle.startParameter.taskNames[0] != 'runServer'
         ])
-    }
-}
-
-tasks.register("copyReobfJar", Copy) {
-    dependsOn("reobfJar")
-
-    from(layout.buildDirectory.file("reobfJar/output.jar"))
-    into(layout.projectDirectory.dir("run/mods"))
-    rename("output.jar", "${mod_name}-${mod_version}.jar")
-}
-
-afterEvaluate {
-    tasks.matching { it.name.startsWith("reobfJar") }.configureEach {
-        finalizedBy("copyReobfJar")
     }
 }
 
