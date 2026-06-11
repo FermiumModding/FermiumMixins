@@ -544,6 +544,15 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.autosavelog.json", defaultValue = false)
 	public boolean automaticSaveLogging = false;
+
+	@Config.Comment({
+			"Minimum autosave duration (in ms) for it to be logged.",
+			"Set to 0 to always log.",
+			"Requires \"Automatic Save Logging (Vanilla)\"."
+	})
+	@Config.Name("Automatic Save Logging Threshold (Vanilla)")
+	@Config.RangeInt(min = 0)
+	public int automaticSaveLoggingThreshold = 500;
 	
 	@Config.Comment("Adjusts the server thread priority to max (10) to potentially improve performance when other less important threads are taking up resources")
 	@Config.Name("Server Thread Priority Tweak (Vanilla)")

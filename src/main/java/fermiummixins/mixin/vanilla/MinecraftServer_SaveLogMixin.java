@@ -1,6 +1,7 @@
 package fermiummixins.mixin.vanilla;
 
 import fermiummixins.FermiumMixins;
+import fermiummixins.handlers.ConfigHandler;
 import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +21,7 @@ public abstract class MinecraftServer_SaveLogMixin {
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/server/management/PlayerList;saveAllPlayerData()V", shift = At.Shift.BEFORE)
 	)
 	private void fermiummixins_vanillaMinecraftServer_tick0(CallbackInfo ci) {
-		FermiumMixins.LOGGER.log(Level.INFO, "Automatic world save starting...");
+		FermiumMixins.LOGGER.log(Level.DEBUG, "Automatic world save starting...");
 		this.fermiummixins$saveStartTime = System.currentTimeMillis();
 	}
 	
@@ -29,6 +30,8 @@ public abstract class MinecraftServer_SaveLogMixin {
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/server/MinecraftServer;saveAllWorlds(Z)V", shift = At.Shift.AFTER)
 	)
 	private void fermiummixins_vanillaMinecraftServer_tick1(CallbackInfo ci) {
-		FermiumMixins.LOGGER.log(Level.INFO, "Automatic world save finished, took {}ms", System.currentTimeMillis() - this.fermiummixins$saveStartTime);
+		long dur = System.currentTimeMillis() - this.fermiummixins$saveStartTime;
+		if(dur >= ConfigHandler.VANILLA_CONFIG.automaticSaveLoggingThreshold)
+			FermiumMixins.LOGGER.log(Level.INFO, "Automatic world save finished, took {}ms", dur);
 	}
 }
