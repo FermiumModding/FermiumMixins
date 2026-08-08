@@ -584,6 +584,12 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.suppresswrongmovement.json", defaultValue = false)
 	public boolean suppressWrongMovement = false;
+
+	@Config.Comment("If item entries in loot tables can't be found (for example if the required mod isn't present), instead of ignoring the entire loot table, this fix will just ignore such entries and flag them in the log.")
+	@Config.Name("Loot Allows Unknown Items (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.lootallowsunknownitems.json", defaultValue = false)
+	public boolean lootAllowsUnknownItems = false;
 	
 	private Set<Potion> tippedArrowBlacklistedPotions = null;
 	private List<String> particleRetainCollisionClasses = null;

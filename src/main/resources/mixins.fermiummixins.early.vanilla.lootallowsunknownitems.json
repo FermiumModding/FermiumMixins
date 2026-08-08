@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "fermiummixins.mixin",
+  "refmap": "mixins.fermiummixins.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "mixins": [
+    "vanilla.lootentrynull.LootEntryItemAccessor",
+    "vanilla.lootentrynull.LootPoolMixin_DeleteNullEntries",
+    "vanilla.lootentrynull.JsonUtilsMixin_StopCrash"
+  ],
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  }
+}
