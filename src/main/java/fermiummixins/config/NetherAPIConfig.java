@@ -8,24 +8,11 @@ import net.minecraftforge.common.config.Config;
 @MixinConfig(name = FermiumMixins.MODID)
 public class NetherAPIConfig {
 	
-	@Config.Comment("Fix NetherAPI startup crash if some BetterNether biomes are disabled")
-	@Config.Name("Fix Disabled Biome Crash (NetherAPI/BetterNether)")
-	@Config.RequiresMcRestart
-	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.netherapi.betternethercrash.json", defaultValue = false)
-	@MixinConfig.CompatHandling(
-			modid = ModLoadedUtil.NetherAPI_MODID,
-			desired = true,
-			reason = "Requires mod to properly function"
-	)
-	@MixinConfig.CompatHandling(
-			modid = ModLoadedUtil.BetterNether_MODID,
-			desired = true,
-			reason = "Requires mod to properly function"
-	)
-	public boolean fixDisabledBiomeCrash = false;
-	
-	@Config.Comment("Enables retrying random spawn placement to get a better location (Avoids spawning in blocks or liquid)" + "\n" +
-			"See Random Respawn Placement Protection (Vanilla) for additional related options")
+	@Config.Comment({
+			"Enables retrying random spawn placement to get a better location (Avoids spawning in blocks or liquid)",
+			"See Random Respawn Placement Protection (Vanilla) for additional related options",
+			"Note: this also in turn fixes default NetherAPIs respawn attempt implementation breaking servers if spawnRadius gamerule is large"
+	})
 	@Config.Name("Random Respawn Placement Protection (NetherAPI)")
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.netherapi.respawnprotection.json", defaultValue = false)
@@ -35,4 +22,15 @@ public class NetherAPIConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean randomRespawnPlacementProtectionNetherAPI = false;
+
+	@Config.Comment("Removes NetherAPIs feature of allowing respawns in other dimensions when a respawn is set there and in the current dimension the respawn is missing or obstructed.")
+	@Config.Name("Disable Cross-Dimension Respawn (NetherAPI)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.netherapi.nocrossdimrespawn.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.NetherAPI_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean noCrossDimRespawns = false;
 }
