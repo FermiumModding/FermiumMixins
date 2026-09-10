@@ -8,6 +8,10 @@
   "mixins": [
   ],
   "client": [
-    "vanilla.IGameSettingsOptionsAccessor"
-  ]
+    "vanilla.IGameSettingsOptionsAccessor",
+    "vanilla.GameSettings_ClampGammaMixin"
+  ],
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  }
 }

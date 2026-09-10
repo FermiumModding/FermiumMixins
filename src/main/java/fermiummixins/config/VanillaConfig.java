@@ -193,7 +193,7 @@ public class VanillaConfig {
 	@Config.Name("Respawn Protection Biome Type Blacklist")
 	public String[] respawnProtectionBiomeTypeBlacklist = { "OCEAN" };
 	
-	@Config.Comment("Allows for setting minimum and maximum Gamma values")
+	@Config.Comment("Allows for setting minimum and maximum Gamma values. Automatically clamps ingame gamma to these values.")
 	@Config.Name("Allow Clamping Gamma (Vanilla)")
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.clampgamma.json", defaultValue = false)
