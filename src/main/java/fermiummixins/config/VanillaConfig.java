@@ -547,6 +547,13 @@ public class VanillaConfig {
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.largeclientpackets.json", defaultValue = false)
 	public boolean largeClientPackets = false;
 	
+	@Config.Comment("Shortens chat messages too long to send instead of kicking the players receiving them" + "\n" +
+			"For example \"Given [item]\" for an item with a lot of NBT, which carries it all in its hover text")
+	@Config.Name("Oversized Chat Message Fix (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.oversizedchat.json", defaultValue = false)
+	public boolean oversizedChat = false;
+	
 	@Config.Comment("Prints when automatic world saving starts and ends to the log, along with time taken, for better clarity during lag spikes")
 	@Config.Name("Automatic Save Logging (Vanilla)")
 	@Config.RequiresMcRestart
