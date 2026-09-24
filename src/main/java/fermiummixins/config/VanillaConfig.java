@@ -539,6 +539,14 @@ public class VanillaConfig {
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.entityvelocitysync.json", defaultValue = false)
 	public boolean entityVelocitySync = false;
 	
+	@Config.Comment("Splits custom packets a client sends that are over 32767 bytes into parts, the way Forge already splits server ones, instead of kicking the client" + "\n" +
+			"For example JEI giving an item with a lot of NBT, like a full Shulker Box" + "\n" +
+			"Needs to be enabled on both client and server")
+	@Config.Name("Large Client Packet Fix (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.largeclientpackets.json", defaultValue = false)
+	public boolean largeClientPackets = false;
+	
 	@Config.Comment("Prints when automatic world saving starts and ends to the log, along with time taken, for better clarity during lag spikes")
 	@Config.Name("Automatic Save Logging (Vanilla)")
 	@Config.RequiresMcRestart
