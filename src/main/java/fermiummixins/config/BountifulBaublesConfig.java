@@ -33,6 +33,17 @@ public class BountifulBaublesConfig {
 	)
 	public boolean isShieldFix = false;
 	
+	@Config.Comment("Fixes shields and modifier books showing untranslated names in messages from a dedicated server, such as Quark item links")
+	@Config.Name("Server Item Names Fix (BountifulBaubles)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.bountifulbaubles.servernames.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.BountifulBaubles_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean serverItemNamesFix = false;
+	
 	@Config.Comment("Modifies the Cobalt Shield Knockback Resistance Attribute from 10 -> 1000.")
 	@Config.Name("Cobalt Shield Increased Resistance (BountifulBaubles)")
 	@Config.RequiresMcRestart
