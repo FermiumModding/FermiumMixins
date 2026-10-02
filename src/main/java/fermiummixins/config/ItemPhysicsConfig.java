@@ -53,4 +53,15 @@ public class ItemPhysicsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean carryOnQFix = false;
+	
+	@Config.Comment("Fixes right click pickup doing nothing while holding items in both hands with no block behind the item, such as underwater")
+	@Config.Name("Full Hands Pickup Fix (ItemPhysics)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.itemphysics.fullhandspickup.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.ItemPhysics_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean fullHandsPickupFix = false;
 }
