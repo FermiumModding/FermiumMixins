@@ -40,4 +40,15 @@ public class SimpleDifficultyConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean commandPermissionsFix = false;
+	
+	@Config.Comment("Makes the Dragon Canteen fill completely from water source blocks like the other canteens, instead of one dose per click")
+	@Config.Name("Dragon Canteen Refill Fix (SimpleDifficulty)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.simpledifficulty.dragoncanteen.json", defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.SimpleDifficulty_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean dragonCanteenRefillFix = false;
 }
