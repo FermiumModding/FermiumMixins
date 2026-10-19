@@ -45,6 +45,20 @@ public class DynamicSurroundingsConfig {
 			reason = "Requires mod to properly function"
 	)
 	public boolean potionAmplifierVisibility = false;
+
+	@Config.Comment("Fixes the light level HUD showing light levels of caves through terrain that is still reloading, such as after F3+A")
+	@Config.Name("Light Level HUD Reloading Terrain Fix (DynamicSurroundings/DSHuds)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(
+			earlyMixin = "mixins.fermiummixins.early.dynamicsurroundings.lightlevelterrain.json",
+			lateMixin = "mixins.fermiummixins.late.dynamicsurroundings.lightlevelterrain.json",
+			defaultValue = false)
+	@MixinConfig.CompatHandling(
+			modid = ModLoadedUtil.DynamicSurroundingsHuds_MODID,
+			desired = true,
+			reason = "Requires mod to properly function"
+	)
+	public boolean lightLevelHUDReloadingTerrain = false;
 	
 	@Config.Comment("Display the Y level when holding the Barometer and display the light level when holding the photometer" + "\n" +
 			"Additionally displays the barometer/photometer/compass information when aiming at one in an item frame")
