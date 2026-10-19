@@ -31,18 +31,6 @@ public abstract class TransformerWorldProvider_RespawnProtectionMixin {
 		return original.call(world, randomPos);
 	}
 
-	@Inject(
-			method = "getRandomizedSpawnPoint",
-			at = @At(value = "INVOKE", target = "Lgit/jbredwards/nether_api/mod/asm/transformers/vanilla/TransformerWorldProvider$Hooks;createCache(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;I)Lnet/minecraft/world/ChunkCache;"),
-			cancellable = true,
-			remap = false
-	)
-	private static void fermiummixins_netherAPITransformerWorldProviderHooks_getRandomizedSpawnPoint_inject2(World world, CallbackInfoReturnable<BlockPos> cir, @Local(name = "spawnPoint") BlockPos spawnPoint, @Local(name = "spawnFuzz") int spawnFuzz, @Local(name = "spawnFuzzHalf") int spawnFuzzHalf){
-		// prevent nether-api's respawning system that generates immense chunk caches if spawnRadius is large
-		BlockPos randomSpawnPos = fermiummixins$attemptRespawn(world, spawnPoint, spawnFuzz, spawnFuzzHalf);
-		cir.setReturnValue(randomSpawnPos != null ? randomSpawnPos : spawnPoint); //unconditionally canceling the entire bottom part
-	}
-
 	@Unique
 	private static BlockPos fermiummixins$attemptRespawn(World world, BlockPos spawnPoint, int spawnFuzz, int spawnFuzzHalf){
 		for(int i = 0; i < ConfigHandler.VANILLA_CONFIG.respawnProtectionAttempts; i++) {

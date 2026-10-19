@@ -10,8 +10,7 @@ public class NetherAPIConfig {
 	
 	@Config.Comment({
 			"Enables retrying random spawn placement to get a better location (Avoids spawning in blocks or liquid)",
-			"See Random Respawn Placement Protection (Vanilla) for additional related options",
-			"Note: this also in turn fixes default NetherAPIs respawn attempt implementation breaking servers if spawnRadius gamerule is large"
+			"See Random Respawn Placement Protection (Vanilla) for additional related options"
 	})
 	@Config.Name("Random Respawn Placement Protection (NetherAPI)")
 	@Config.RequiresMcRestart
