@@ -526,7 +526,14 @@ public class VanillaConfig {
 	@Config.RequiresMcRestart
 	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.blockstateidentity.json", defaultValue = false)
 	public boolean blockStateIdentityRegistryPatch = false;
-	
+
+	@Config.Comment("Replaces the BlockState hashcode, which is based on its property map, with a unique per-instance integer" + "\n" +
+			"The property map hash is slow to compute and collides heavily between blocks with matching properties, slowing down hash based maps of BlockStates")
+	@Config.Name("BlockState Hashcode Performance (Vanilla)")
+	@Config.RequiresMcRestart
+	@MixinConfig.MixinToggle(earlyMixin = "mixins.fermiummixins.early.vanilla.blockstatehash.json", defaultValue = false)
+	public boolean blockStateHashcodePerformance = false;
+
 	@Config.Comment("Fixes Optifine adding reflection to block storage methods causing wasted performance")
 	@Config.Name("Block Storage Optifine Lag Fix (Vanilla)")
 	@Config.RequiresMcRestart
