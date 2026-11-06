@@ -14,8 +14,9 @@ public class BetterFoliageConfig {
 	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.betterfoliage.cache.json", defaultValue = false)
 	@MixinConfig.CompatHandling(
 			modid = ModLoadedUtil.BetterFoliage_MODID,
+			targetVersionRange = "(,2.5.0)",
 			desired = true,
-			reason = "Requires mod to properly function"
+			reason = "Requires BetterFoliage or RLFoliage before 2.5.0 (RLFoliage 2.5.0+ is a Java rewrite without the targeted classes)"
 	)
 	public boolean betterFoliageListCache = false;
 	
@@ -25,8 +26,9 @@ public class BetterFoliageConfig {
 	@MixinConfig.MixinToggle(lateMixin = "mixins.fermiummixins.late.betterfoliage.offset.json", defaultValue = false)
 	@MixinConfig.CompatHandling(
 			modid = ModLoadedUtil.BetterFoliage_MODID,
+			targetVersionRange = "(,2.5.0)",
 			desired = true,
-			reason = "Requires mod to properly function"
+			reason = "Requires BetterFoliage or RLFoliage before 2.5.0 (RLFoliage 2.5.0+ is a Java rewrite without the targeted classes)"
 	)
 	public boolean betterFoliageGeometry = false;
 }
