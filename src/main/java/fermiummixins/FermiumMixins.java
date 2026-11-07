@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import fermiummixins.proxy.CommonProxy;
 
-@Mod(modid = FermiumMixins.MODID, version = FermiumMixins.VERSION, name = FermiumMixins.NAME, dependencies = "required:fermiumbooter")
+@Mod(modid = FermiumMixins.MODID, version = FermiumMixins.VERSION, name = FermiumMixins.NAME, dependencies = "required:fermiumbooter@[1.5.3,)")
 public class FermiumMixins {
     
     public static final String MODID = "fermiummixins";
